@@ -1,0 +1,20 @@
+{
+  "name": "prepare-investment-visit",
+  "interface": {
+    "displayName": "一级市场投资工作流"
+  },
+  "plugins": [
+    {
+      "name": "prepare-investment-visit",
+      "source": {
+        "source": "local",
+        "path": "./plugins/prepare-investment-visit"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}
