@@ -1,0 +1,23 @@
+{
+  "name": "prepare-investment-visit",
+  "version": "0.1.0",
+  "description": "Evidence-backed private-market company visit preparation for investors",
+  "author": {
+    "name": "mengyao007",
+    "url": "https://github.com/mengyao007"
+  },
+  "homepage": "https://github.com/mengyao007/prepare-investment-visit",
+  "repository": "https://github.com/mengyao007/prepare-investment-visit",
+  "license": "MIT",
+  "keywords": ["private-markets", "investment-research", "company-visit"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "一级市场访前助手",
+    "shortDescription": "生成证据可追溯的访前调研与会谈问题",
+    "longDescription": "根据公司名称、简介、Teaser 或 BP，生成结构化访前研究 Note。",
+    "developerName": "mengyao007",
+    "category": "Productivity",
+    "capabilities": [],
+    "defaultPrompt": "使用 $prepare-investment-visit 为这家公司生成标准深度的访前调研 Note。"
+  }
+}
