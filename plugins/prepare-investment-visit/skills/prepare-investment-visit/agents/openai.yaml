@@ -1,0 +1,4 @@
+interface:
+  display_name: "一级市场访前助手"
+  short_description: "为一级市场投资人生成证据可追溯的访前调研、风险判断与会谈问题清单"
+  default_prompt: "Use $prepare-investment-visit to prepare an evidence-backed pre-meeting note for this company."
