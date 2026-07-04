@@ -1,0 +1,17 @@
+{
+  "name": "prepare-investment-visit-feishu-bot",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node src/app.mjs",
+    "check": "node --check src/app.mjs",
+    "self-test": "node src/app.mjs --self-test"
+  },
+  "dependencies": {
+    "@larksuiteoapi/node-sdk": ">=1.24.0"
+  }
+}
