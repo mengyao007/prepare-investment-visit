@@ -1,34 +1,49 @@
-# Audio and video outputs
+# Podcast output
 
-Create media only after the note passes its quality gates. Do not add new facts during adaptation.
+Create audio only after the PDF passes all quality gates. The final note is the source of truth.
 
-## Audio briefing
+## Editorial adaptation
 
-Default to an 8-12 minute Chinese briefing unless the user specifies otherwise. Use either one narrator or a two-host discussion. Cover:
+Write a new 5-10 minute single-host professional investment briefing; do not read the note verbatim. Target roughly 1,800-2,800 Chinese characters and cover:
 
-1. What the company does and why now
-2. Product and business model
-3. Industry and competition
-4. Team and financing
-5. What is verified, what is claimed, and the main risks
-6. The five questions to remember before entering the meeting
+1. What the company does and why the meeting matters.
+2. Product, buyer, business model, and proof of adoption.
+3. Market and competitive position.
+4. The meeting person: verified background, role, and relevant public views.
+5. What is verified, what is company claim, and the decisive risks.
+6. The five questions to remember before entering the meeting.
 
-Write for listening: short sentences, explain acronyms once, round non-critical numbers, and verbally distinguish facts from company claims. Put links and detailed sourcing in the accompanying note, not in spoken narration.
+Use short spoken sentences, transitions, and one coherent narrative arc. Explain acronyms once, round non-critical numbers, and verbally label claims and inferences. Do not speak URLs, long source lists, tables, disclaimers, or appendix detail. Include a brief statement that the voice is AI-generated.
 
-If a speech-synthesis tool is available, render the final approved script and return the audio file. Otherwise return a production-ready script with speaker labels, pauses, pronunciation notes, and estimated duration. Never claim an audio file exists when only a script was produced.
+Save the internal UTF-8 script as plain text without Markdown links.
 
-## Video briefing
+## Preferred renderer: official speech Skill
 
-Default to 5-8 minutes. Produce a scene-by-scene storyboard containing duration, narration, on-screen text, visual source or generation instruction, and citation. Prefer diagrams, timelines, value-chain maps, product flows, competitor maps, and a final meeting-question card.
+When the OpenAI curated speech Skill is installed and OPENAI_API_KEY is configured, invoke it with:
 
-Use source-backed charts and properly licensed or user-provided images. Label AI-generated technical visuals as schematics; never present them as the company's actual product, facility, customer, or measured result. Keep speculative future states visually distinct.
+- one single-host job;
+- Chinese language input;
+- voice cedar unless the user requests another built-in voice;
+- MP3 output;
+- composed, analytical, neutral tone;
+- brisk but clear pacing.
 
-If all rendering tools are available and the user requested a rendered video, create the visuals, narration, captions, and final video. Otherwise return the storyboard, narration, shot list, and asset manifest needed for production.
+The API key and API billing belong to the user and are separate from the ChatGPT/Codex subscription. Never ask the user to paste a key into chat.
 
-## Cost control
+## No-key Windows fallback
 
-- `quick`: 4-6 minute audio; no rendered video, only a six-scene outline.
-- `standard`: 8-12 minute audio; 5-8 minute storyboard or rendered video when tools permit.
-- `deep`: 12-18 minute audio; expanded technical explainer and appendix scenes.
+When no API key is available, run the bundled offline renderer:
 
-Tell the user before any high-cost rendering step that requires a paid external API or substantial generation. Research and note creation should not wait on media generation.
+    powershell -ExecutionPolicy Bypass -File scripts/render_audio.ps1
+      -InputTextPath outputs/podcast-script.txt
+      -OutputPath outputs/company-visit-podcast.wav
+
+This path needs no API key but may sound less natural. It still uses the adapted podcast script, not the full note.
+
+## Verification
+
+- Confirm the audio exists and is non-empty.
+- Check duration is 5-10 minutes, or explain a justified exception.
+- Spot-check the beginning, meeting-person segment, and final five questions for pronunciation and factual fidelity.
+- Confirm the audio introduces no fact absent from the final note.
+- If rendering fails, deliver the PDF and podcast script, state the exact failure, and never claim an audio file exists.

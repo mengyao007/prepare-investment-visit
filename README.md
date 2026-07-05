@@ -1,71 +1,74 @@
 # 一级市场访前助手
 
-第一次发布或安装请先阅读 [`START-HERE.md`](START-HERE.md)。API Key 与费用归属见 [`AUTHENTICATION.md`](AUTHENTICATION.md)。
+prepare-investment-visit 是面向一级市场投资人的 Codex Plugin。它在研究前先确认交流对象、补充材料和播客需求，再结合用户提供的 BP/Teaser/简介与当前公开信息，生成证据可追溯的专业 PDF 访前研究。
 
-`prepare-investment-visit` 是一个面向一级市场投资人的 Codex Plugin。它可以根据公司名称、简介、Teaser 或 BP，生成证据可追溯的公司交流前置 Note，并把公开事实、公司口径、推断和待核验事项分开。
-
-当前版本：`0.1.0`。核心 Skill 已通过原子跳动 standard 案例和碳生万物 quick 案例回归；飞书适配器仍需在部署组织的真实应用中完成联调。
+当前版本：0.3.0。
 
 ## 主要能力
 
-- 公司、产品、技术与商业模式梳理
-- 行业、市场、竞争和替代方案研究
-- 创始人、团队、近期公开发言和关键人风险
-- 客户、合同、经营数据、财务与单位经济性核验框架
-- 融资历史、股东、关联主体和治理问题
-- 决策优先的交流问题与会后资料清单
-- 可选音频脚本、播客和视频分镜
-- 快速、标准、深度三档研究预算
+- 公司、产品、技术、商业模式与经营验证
+- 行业价值链、市场测算、竞争与替代方案
+- 交流对象及核心团队的可核验履历、公开观点与针对性问题
+- 客户、合同、交付、财务、单位经济性、融资、股权与治理
+- 近期时间线、矛盾日志、红旗风险和牛/基/熊情景
+- 决策优先的会谈计划与会后资料清单
+- 默认交付排版专业、引用可点击的 PDF
+- 可选 5-10 分钟单主持人专业投研播客
 
 ## 安装
 
-```text
-codex plugin marketplace add mengyao007/prepare-investment-visit
-codex plugin add prepare-investment-visit@prepare-investment-visit
-```
+    codex plugin marketplace add mengyao007/prepare-investment-visit
+    codex plugin add prepare-investment-visit@prepare-investment-visit
 
-重启 Codex 或开启新线程，然后通过 `$prepare-investment-visit` 显式调用。Codex 也可以根据任务描述自动触发该 Skill。
+安装后开启新线程，通过 $prepare-investment-visit 调用。
 
-## 谁支付模型费用
+## 使用流程
 
-安装包不包含作者的 API Key，也不会把使用者的任务转发到作者账户。
+只需先提供公司名称。Skill 会在检索前一次性询问：
 
-- **在个人 Codex 中使用：**使用者登录自己的 Codex/ChatGPT 账户，或在自己的环境配置自己的 OpenAI API Key；用量计入使用者自己的账户。
-- **部署飞书机器人：**机器人由部署方统一承担模型用量。应使用公司专用 OpenAI API Project 或公司管理账户，不能使用作者个人 Key。
-- **不要把 Key 发给 Skill 作者或飞书机器人：**密钥只应保存在使用者本机或部署方的 Secret 管理器中。
+1. 与这家公司的谁交流（姓名和职务；不知道可回复“待定”）；
+2. 是否有 BP、Teaser、一段话简介、官网或其他补充材料；
+3. 是否需要把最终 PDF 改编成 5-10 分钟播客音频。
 
-完整说明见 [`AUTHENTICATION.md`](AUTHENTICATION.md)。
+回答后才开始研究。若用户提供材料，Note 会同时使用材料和公开信息，并明确区分公司口径、已验证事实、第三方报道、推断和未知项。
 
-## 最小用法
+## 输出
 
-```text
-使用 $prepare-investment-visit 调研“示例科技”，交流对象是创始人张三，
-生成标准版中文访前 Note。附件是公司 BP。
-```
+- 必选：company-visit-note.pdf
+- 可选：company-visit-podcast.mp3（官方 Speech）或 company-visit-podcast.wav（无 Key 本机兜底）
+- 内部中间稿和证据台账默认不交付，除非用户要求
 
-只提供公司名称也可以。若公司身份存在歧义，Skill 会先询问官网、所在地、法律主体或创始人等识别信息。
+PDF 的前两页给出会议目标、当前建议、投资主线、关键正负信号、证据置信度和最高价值问题；正文覆盖人物、公司、产品、市场、竞争、经营、团队、财务、融资、治理、近期动态、风险、会谈计划和资料清单。
+
+## 播客与 API Key
+
+主体研究与 PDF 生成不需要额外 API Key，使用用户自己的 Codex 订阅环境。
+
+高质量音频优先调用 OpenAI 官方 curated speech Skill。该路径需要用户在本机配置自己的 OPENAI_API_KEY，API 与 ChatGPT/Codex 订阅分开计费。不要把密钥粘贴到聊天、Skill 或仓库中。
+
+没有 API Key 时，Windows 用户可使用内置离线中文语音兜底生成 WAV。音色可能不如官方 Speech 自然，但内容仍是重新编写的专业播客摘要，不会逐字朗读 Note。
+
+安装官方 speech Skill 可在 Codex 中调用：
+
+    $skill-installer speech
+
+重启 Codex 后生效。
 
 ## 研究档位
 
-| 档位 | 适用场景 | 公开来源目标 | 默认时间上限 |
-|---|---|---:|---:|
-| quick | 临时拜访、路上速读 | 4-8 | 5 分钟 |
-| standard | 常规创始人交流 | 10-18 | 12 分钟 |
-| deep | 重点项目、投前准备 | 20-35 | 30 分钟 |
+| 档位 | 公开来源目标 | 检索上限 | 典型 PDF |
+|---|---:|---:|---:|
+| quick | 4-8 | 8 | 3-5 页 |
+| standard | 10-18 | 20 | 8-15 页 |
+| deep | 20-35 | 40 | 15-30 页 |
 
-默认交付为 Markdown Note。音频和视频只有在对应工具可用且用户明确请求时才渲染；否则提供可直接制作的播客脚本或视频分镜。
-
-## 飞书机器人
-
-`integrations/feishu-bot` 提供可选的企业自建应用适配器，支持单聊/群聊、BP 文件、任务确认、Codex 调用和 Note/证据台账回传。飞书凭证、Codex 凭证和聊天白名单由部署方自行配置，不包含在 Plugin 中。
+默认使用 standard。
 
 ## 数据与保密
 
-- BP、Teaser 和生成结果默认只保存在任务工作目录。
-- 公司材料中的数据一律先视为公司口径，除非获得独立来源验证。
-- 部署机器人时应配置数据保留期限、磁盘加密、访问白名单和日志脱敏。
-- 不要把真实 BP、客户合同、财务数据或生成的保密 Note 提交到公开仓库。
+- BP、Teaser、合同、财务数据和生成结果只留在用户授权的任务目录。
+- 公司材料中的数据先视为公司口径，除非获得独立来源验证。
+- 不要把真实保密材料或生成的保密 Note 提交到公开仓库。
+- 输出是访前研究辅助材料，不构成正式法律、财务、税务、监管、医疗或技术尽调。
 
-## 发布状态
-
-发布者、MIT 许可证、GitHub 仓库与安全报告渠道已写入发行包。飞书适配器的生产部署仍需组织自有凭据和实机联调。见 `PUBLISHING-CHECKLIST.md`。
+安装与验收见 START-HERE.md；认证边界见 AUTHENTICATION.md。

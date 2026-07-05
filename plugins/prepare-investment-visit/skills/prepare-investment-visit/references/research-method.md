@@ -13,26 +13,26 @@ Grade the source, not the conclusion. A primary filing proves what was filed; it
 
 ## Research sequence
 
-1. Resolve identity: names, legal entities, location, website, founders, products, aliases, and related companies.
-2. Build a dated fact spine: incorporation, product launches, financing, key hires, customers, projects, regulatory milestones, and recent events.
-3. Test the problem and product: user, pain, workflow, architecture, technical mechanism, deployment, pricing, and replacement alternative.
-4. Map the industry: value chain, market drivers, market constraints, policy, technology inflections, and realistic addressable revenue pool.
-5. Map competition: direct competitors, substitutes, incumbents, customers or suppliers that can integrate, and failed analogues.
-6. Test commercial proof: paid status, contract type, revenue recognition, implementation stage, retention or expansion, concentration, and receivables.
-7. Test team claims: exact role, dates, scope, measurable outcomes, publications, patents, public talks, and employment or IP boundaries.
-8. Test capital and governance: financing rounds, investors, consideration, valuation if disclosed, registered-capital changes, related parties, control, option pool, and special rights.
-9. Search for disconfirming evidence: plan changes, delayed projects, disputes, penalties, lawsuits, customer churn, safety events, layoffs, and inconsistent metrics.
-10. Search recent developments separately with a date filter and record the cutoff date.
+1. Resolve company identity: names, legal entities, location, website, founders, products, aliases, and related companies.
+2. Resolve meeting-person identity: current role, company relationship, name collisions, career dates, education, operating scope, public talks, publications, patents, and stated views.
+3. Build a dated fact spine: incorporation, product launches, financing, key hires, customers, projects, regulatory milestones, and recent events.
+4. Test the problem and product: user, pain, workflow, architecture, technical mechanism, deployment, pricing, and replacement alternative.
+5. Map the industry: value chain, market drivers, constraints, policy, technology inflections, and realistic addressable revenue pool.
+6. Map competition: direct competitors, substitutes, incumbents, customers or suppliers that can integrate, and failed analogues.
+7. Test commercial proof: paid status, contract type, revenue recognition, implementation stage, retention or expansion, concentration, and receivables.
+8. Test team claims: exact role, dates, scope, measurable outcomes, publications, patents, public talks, and employment or IP boundaries.
+9. Test capital and governance: financing rounds, investors, consideration, valuation if disclosed, registered-capital changes, related parties, control, option pool, and special rights.
+10. Search for disconfirming evidence and recent developments separately with a date filter, then record the cutoff date.
 
 ## Bounded search allocation
 
 Allocate the selected query ceiling before searching. For `standard` mode, a useful default is:
 
 - identity, entities, and timeline: 3 queries;
+- meeting person, founder, and team: 4 queries;
 - product, technology, and customer proof: 5 queries;
-- founder and team: 3 queries;
 - financing, ownership, and governance: 3 queries;
-- competition and market: 4 queries;
+- competition and market: 3 queries;
 - recent events and disconfirming evidence: 2 queries.
 
 Reallocate unused queries to decision-critical gaps only. Do not spend the market budget before resolving the target company identity and supplied-material claims.
@@ -48,7 +48,7 @@ Combine company, legal entity, founder, product, and location with relevant term
 - `诉讼 处罚 事故 召回 失信 裁员 延期`
 - English equivalents such as `funding`, `customer`, `contract`, `patent`, `founder interview`, `lawsuit`, `regulatory`, and `recall`.
 
-Search claimed customers and investors from their side as well. A company press release alone does not establish a paid customer or completed financing.
+Search claimed customers and investors from their side as well. Search the meeting person's claimed education, employment, publications, and achievements from independent or primary sources. A company press release alone does not establish a paid customer or completed financing.
 
 After two distinct searches fail to verify a narrow claim, mark it `未找到可靠公开披露` and stop. Absence of search results is not proof of absence.
 

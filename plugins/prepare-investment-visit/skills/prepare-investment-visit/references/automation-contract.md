@@ -1,47 +1,48 @@
 # Automation contract
 
-Use this contract for CLI, bot, batch, or other file-backed runs.
+Use this contract for file-backed and batch runs.
 
 ## Preflight gate
 
-Before any web search:
+Before public research:
 
-1. Confirm every declared input exists and is readable.
-2. Confirm the Skill instructions and required references are readable.
-3. Create the output directory, write a small probe file, read it back, and remove it.
-4. Confirm the selected output filenames stay inside the assigned job directory.
-5. Confirm the research depth and its query, source, time, and output-size ceilings.
+1. Confirm intake has values for meeting person, supplementary-material status, and podcast choice.
+2. Confirm every declared input exists and is readable.
+3. Confirm the Skill, required references, and scripts are readable.
+4. Create the assigned output directory, write/read/remove a probe file, and verify every output path remains inside it.
+5. Confirm depth and query/source/time/size ceilings.
+6. Confirm a Chinese font and PDF dependencies are available.
 
-If any check fails, stop immediately with `preflight_failed`. Do not continue public research without the supplied materials when the user expected those materials to be reviewed.
+If any check fails, stop with preflight_failed. Do not continue as if supplied materials were reviewed.
 
 ## Staged artifacts
 
-For `standard` and `deep` file-backed runs, write these checkpoints:
+For standard and deep runs, keep:
 
-- `research/material-claims.md` after reading supplied materials.
-- `research/evidence-ledger.md` after core public research.
-- `outputs/note.md` after drafting and validation.
+- research/material-claims.md after reading supplied materials;
+- research/evidence-ledger.md after core public research;
+- outputs/note-source.md as the internal validated source;
+- outputs/company-visit-note.pdf as the required final Note;
+- outputs/podcast-script.txt and an audio file only when podcast was selected.
 
-Write a compact checkpoint rather than retaining all browsing text. A failed later stage should leave enough evidence to resume without repeating completed research.
+Do not deliver internal checkpoints unless requested.
 
 ## Stop conditions
 
-Stop research and draft with labeled gaps when any condition is met:
+Stop searching and draft with labeled gaps when:
 
-- query, source, wall-time, or user-provided token ceiling;
-- two distinct queries for a narrow claim yield no reliable result;
-- remaining gaps are not decision-critical for the upcoming meeting;
-- new results repeat already captured facts without improving source quality;
-- required tools or files become unavailable.
+- a query, source, time, or user-provided ceiling is reached;
+- two distinct searches cannot verify a narrow claim;
+- remaining gaps are not decision-critical;
+- new results repeat captured facts without improving source quality;
+- a required tool or input becomes unavailable.
 
 ## Structured status
 
-Automation wrappers should distinguish:
+- complete: PDF exists, working-note validation passed, PDF validation passed, and page images were inspected; requested audio also exists or its exact rendering failure is disclosed.
+- needs_clarification: target company or another essential intake value remains ambiguous.
+- preflight_failed: input, output path, font, Skill resource, or required dependency is unavailable.
+- failed: research or generation failed after preflight.
+- partial: checkpoints exist but the final PDF does not.
 
-- `complete`: requested files exist and validation ran;
-- `needs_clarification`: company identity or another essential input is ambiguous;
-- `preflight_failed`: files, output path, Skill resources, or sandbox are unavailable;
-- `failed`: research or generation failed after preflight;
-- `partial`: checkpoint artifacts exist but the final deliverable does not.
-
-Never report `complete` solely because a final chat message was produced. Verify every declared output path exists.
+Never report complete based only on a chat response. Verify every declared artifact.

@@ -1,59 +1,78 @@
-# Note structure
+# Professional note structure
 
-Use the sections that matter for the case. Keep the ordering below unless a different order materially improves the investment decision.
+Use only relevant subsections, but preserve the decision-first order.
 
-## Opening block
+## 1. Cover and mandate
 
-- Company, one-line description, meeting person and role, meeting date, research cutoff, inputs used, and confidentiality level.
-- One-sentence investment thesis.
-- Current action: continue meeting / priority follow-up / watch / defer, with the conditions that could change it.
+- Company and one-line description.
+- Meeting person, role, meeting date if known, research cutoff, depth, supplied inputs, and confidentiality level.
+- Meeting objective and the two or three decisions this conversation should inform.
 
-## Executive summary
+## 2. Two-page investment brief
 
-- Why this may matter.
-- Why the company may win.
-- What is verified versus claimed.
-- Largest uncertainties and contradictions.
-- Recommended next step.
-- Optional screening scorecard. Keep evidence quality separate from business quality.
+- Current action: priority follow-up / continue meeting / watch / defer.
+- One-sentence thesis and the conditions that would change it.
+- Company snapshot: legal entity, location, founding, stage, product, customer, revenue model, financing, and ownership facts.
+- Five strongest positive signals, five main risks or contradictions, and evidence-confidence indicators.
+- Eight to twelve highest-value questions, ranked by decision impact.
 
-## Questions that must be answered
+## 3. Meeting-person intelligence
 
-List 8-15 questions that can change the investment decision. Put the highest-value questions first and request concrete evidence, demonstrations, or reconciliations.
+- Verified current role and relationship to the company.
+- Relevant career, education, operating scope, publications, patents, talks, interviews, and stated views.
+- Evidence-backed responsibilities and decision authority; label unknowns.
+- Likely meeting agenda as an inference, with the evidence behind it.
+- Person-specific questions and useful follow-ups. Do not speculate about personality or private matters.
 
-## Main analysis
+## 4. Company and product
 
-1. Company facts and dated milestones
-2. Problem, product, user workflow, and technology
-3. Industry, value chain, market size, policy, and inflection points
-4. Business model, pricing, customers, contracts, delivery, and operating metrics
-5. Competition, substitutes, differentiation, and defensibility
-6. Founder, team, organization, public statements, and key-person risks
-7. Financial profile and unit economics
-8. Financing history, ownership, related parties, and governance
-9. Recent developments, inconsistencies, disputes, safety, regulatory, and other red flags
-10. Investment scenarios, hard gates, and current recommendation
+- Dated company and legal-entity timeline.
+- Problem, user workflow, product architecture, technology, deployment, and roadmap.
+- Evidence that the product works in production; separate demonstrations, pilots, paid deployments, and scaled use.
 
-For each main section, state the known facts, the investment implication, the evidence gaps, and what to verify in the meeting.
+## 5. Market and competition
 
-## Meeting appendix
+- Value chain, buyer, budget owner, market drivers, constraints, regulation, and inflection points.
+- Bottom-up market sizing tied to the revenue model when data permits.
+- Competitor matrix covering direct competitors, substitutes, incumbents, vertical integration, and failed analogues.
+- Differentiation, defensibility, switching cost, and what competitors can copy.
 
-Group tailored questions by topic. Include likely follow-ups when an answer is vague. Add a short live-demo or on-site observation checklist when relevant.
+## 6. Commercial and operating proof
 
-## Post-meeting request list
+- Business model, pricing, sales cycle, pipeline, contracts, delivery, retention, concentration, capacity, quality, and cash collection.
+- KPI table with definition, period, source, company claim, independent verification, and implication.
+- Unit economics and operational bottlenecks appropriate to the sector.
 
-Request only decision-useful materials, grouped by company/ownership, team, product/technology, customer/contracts, operations, finance, compliance/IP, and financing plan. Explain what each high-priority item verifies.
+## 7. Team, capital, and governance
 
-## Sources and boundaries
+- Founder and key-team evidence, missing roles, key-person risk, incentives, and organization.
+- Financial profile, revenue quality, margin, burn, runway, working capital, and scenario sensitivities.
+- Financing history, investors, valuation if disclosed, ownership, option pool, related parties, control, and governance rights.
 
-Provide a source ledger with IDs, grades, dates, direct links or supplied-file page/slide references, use, and limitations. End with the evidence cutoff and a statement that company-provided operating and financial data require primary-document and third-party verification.
+## 8. Recent developments and red flags
+
+- Visible dated timeline of the latest 12-24 months.
+- Contradiction log: claim A, conflicting evidence, current interpretation, and meeting verification.
+- Disputes, penalties, safety, regulatory, IP, customer, personnel, financing, and execution risks.
+- Bull, base, and bear cases with hard gates rather than unsupported probability scores.
+
+## 9. Meeting plan and next steps
+
+- A 45-60 minute agenda with time allocation.
+- Priority questions grouped by hypothesis, each with evidence requested and likely follow-up.
+- Demo or on-site observation checklist when relevant.
+- Decision-useful post-meeting data request list, prioritized P0/P1/P2 with what each item verifies.
+
+## 10. Sources and boundaries
+
+- Source ledger with ID, grade, publisher, title, date, direct link or supplied-file page/slide, use, and limitation.
+- Calculation notes and definitions.
+- Research cutoff and evidence boundary; company operating and financial data require primary-document and third-party verification.
 
 ## Depth calibration
 
-- `quick`: 1-2 page briefing, top facts, top risks, 8-10 questions, compact sources.
-- `standard`: 5,000-9,000 Chinese characters, 10-15 key questions, competitor comparison, financing/team/recent-event review, evidence ledger.
-- `deep`: 10,000-18,000 Chinese characters, standard note plus bottom-up market model, detailed technical or operating lens, contradiction log, scenario analysis, and expanded diligence request list.
+- quick: 3-5 pages, compact person profile, top facts/risks, 8-10 questions, concise sources.
+- standard: 8-15 pages, full person profile, competitor/KPI tables, dated timeline, 10-15 questions, evidence ledger.
+- deep: 15-30 pages, standard content plus bottom-up market model, contradiction log, scenarios, technical/operating appendix, and expanded request list.
 
-Do not exceed the size target merely to fill every heading. Prefer a clearly labeled gap to repetitive background material.
-
-For `standard` and `deep`, include a visible dated timeline or recent-developments section even when the conclusion is that public activity is limited. Do not bury recency only in the source appendix.
+Do not fill headings with generic background. A clearly labeled evidence gap is more useful than repetition.

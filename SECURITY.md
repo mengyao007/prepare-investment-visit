@@ -1,8 +1,7 @@
-# Security Policy
+# Security
 
-请不要在公开 Issue、聊天消息或示例材料中提交 OpenAI API Key、飞书 App Secret、BP、客户数据或未公开投资材料。
+不要在公开 Issue、聊天消息、示例材料或提交中粘贴 OpenAI API Key、登录令牌、BP、合同、财务数据或生成的保密 Note。
 
-如发现凭据泄露，请先在对应平台立即撤销和轮换凭据。随后可在 [GitHub Issues](https://github.com/mengyao007/prepare-investment-visit/issues) 报告问题，但不要粘贴密钥、BP、日志或其他敏感内容。
+报告安全问题时，请创建不含密钥和保密业务数据的最小复现，并通过 GitHub Issues 联系维护者。若密钥已泄露，应立即在对应平台撤销并轮换。
 
-当前版本的飞书适配器采用集中式服务账户，不支持通过聊天收集个人 API Key。
-
+Plugin 的主体研究与 PDF 生成不需要作者凭据。可选官方 Speech 音频只使用安装者在本机安全配置的 OPENAI_API_KEY；密钥不得写入仓库或 Skill。
